@@ -12,9 +12,10 @@ class Character extends Component{
               y: 1
           },
           positionOffset:{
-              top: -459,
+              top: -408,
               left: -153
-          }
+          },
+          collected:{collected_dots:[]}
         };
     }
     
@@ -26,16 +27,30 @@ class Character extends Component{
 
     moveBack(){
         this.state.position.y--;
+        this.state.positionOffset.top -= 51;
+        this.setState(this.state);
     }
 
     moveLeft(){
         this.state.position.x--;
+        this.state.positionOffset.left -= 51;
+        this.setState(this.state);
     }
 
     moveRight(){
         this.state.position.x++;
+        this.state.positionOffset.left += 51;   
+        this.setState(this.state);
     }
-
+    checkCollection(){
+        if(this.state.position.x==4 && this.state.position.y==1){
+            this.state.collected.collected_dots.push("1_3");
+            alert(this.state.collected.collected_dots[0]);
+        }
+    }
+    alertpos(){
+        alert(this.state.position.y+"_"+this.state.position.x);
+    }
 
 
     render(){

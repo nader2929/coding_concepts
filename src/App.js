@@ -48,6 +48,17 @@ class App extends Component {
         </header>
       );
     } else {
+      var random =  Math.floor(Math.random() * 3)+1;
+      var colour="";
+      if (random==1){
+        colour = "RED";
+      }
+      else if (random == 2){
+        colour="GREEN";
+      }
+      else{
+        colour = "BLUE";
+      }
       content = (
         <main className="App-main">
           <div><button onClick={(e) => this.refreshLayout(e)}>New Game</button></div>
@@ -55,6 +66,8 @@ class App extends Component {
             <ChessBoard id="chessBoard" config={this.state.boardConfig} ref={this.boardRef} characterRef={this.characterRef} />
             <DirectionControls characterRef={this.characterRef} />
           </div>
+          <div><h1 id="color_to_collect">{colour}</h1></div>
+          <div><h1 id="collected"></h1></div>
           
         </main>
       );
