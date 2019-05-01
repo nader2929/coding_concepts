@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import character from './images/character.svg';
 import { relative } from 'path';
+import ChessBoard from './ChessBoard';
 
 class Character extends Component{
 
@@ -17,6 +18,7 @@ class Character extends Component{
           },
           collected:{collected_dots:[]}
         };
+        
     }
     
     moveForward(){
@@ -43,13 +45,17 @@ class Character extends Component{
         this.setState(this.state);
     }
     checkCollection(){
-        if(this.state.position.x==4 && this.state.position.y==1){
-            this.state.collected.collected_dots.push("1_3");
-            alert(this.state.collected.collected_dots[0]);
+        
+        var check = document.getElementsByClassName("dot_on_board");
+        var temp = [];
+        for (var i = 0; i < check.length; i++) {
+            temp.push(check[i].id);
+        } 
+        var location = this.state.position.y+"_"+(this.state.position.x-1);
+        if(temp.includes(location)){
+            this.state.collected.collected_dots.push(location);
+            alert(this.state.collected.collected_dots[this.state.collected.collected_dots.length-1]);
         }
-    }
-    alertpos(){
-        alert(this.state.position.y+"_"+this.state.position.x);
     }
 
 

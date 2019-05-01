@@ -8,6 +8,7 @@ class ChessBoard extends Component {
     super(props);
     this.width = 8;
     this.height = 8;
+    this.dots = [];
   }
 
   render() {
@@ -75,11 +76,15 @@ class ChessBoard extends Component {
             }
         }
       }
-      tableData.rows[row - 1][col + 1] = <span id={row+"_"+col} style={{ color: color_holder }}>&#9679;</span>;
-      console.log(row+"_"+col);
-    });
+      tableData.rows[row - 1][col + 1] = <span class="dot_on_board" id={row+"_"+col} style={{ color: color_holder }}>&#9679;</span>;
+      this.dots.push(row+"_"+col);
 
+    });
+    
     return tableData;
+  }
+  getDots(){
+    return this.dots;
   }
 
   generateHeaders() {
