@@ -88,8 +88,8 @@ class Character extends Component {
     checkCollection() {
 
         var check = document.getElementsByClassName("dot_on_board");
-        var temp = [];
-        var temp_colors = [];
+        var temp = []; //holder for dots position
+        var temp_colors = []; //holder for dots color
         for (var i = 0; i < check.length; i++) {
             temp.push(check[i].id);
             temp_colors.push(check[i].style.color);
