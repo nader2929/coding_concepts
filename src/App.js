@@ -51,13 +51,13 @@ class App extends Component {
       var random =  Math.floor(Math.random() * 3)+1;
       var colour="";
       if (random==1){
-        colour = "RED";
+        colour = "red";
       }
       else if (random == 2){
-        colour="GREEN";
+        colour="green";
       }
       else{
-        colour = "BLUE";
+        colour = "blue";
       }
       content = (
         <main className="App-main">
