@@ -26,6 +26,15 @@ class Character extends Component {
         this.state.movesmade++;
         this.state.position.y++;
         this.state.positionOffset.top += 51;
+        if (this.state.position.y>8 || this.state.position.y<1){
+            alert("You went off of the board :(");
+            
+            this.state.position.x=1;
+            this.state.position.y=1;
+            this.state.positionOffset.top=-408;
+            this.state.positionOffset.left=-153;
+
+        }
         this.setState(this.state);
     }
 
@@ -33,6 +42,15 @@ class Character extends Component {
         this.state.movesmade++;
         this.state.position.y--;
         this.state.positionOffset.top -= 51;
+        if (this.state.position.y>8 || this.state.position.y<1){
+            alert("You went off of the board :(");
+            
+            this.state.position.x=1;
+            this.state.position.y=1;
+            
+            this.state.positionOffset.top=-408;
+            this.state.positionOffset.left=-153;
+        }
         this.setState(this.state);
     }
 
@@ -40,6 +58,15 @@ class Character extends Component {
         this.state.movesmade++;
         this.state.position.x--;
         this.state.positionOffset.left -= 51;
+        if (this.state.position.x>8 || this.state.position.x<1){
+            alert("You went off of the board :(");
+            
+            this.state.position.x=1;
+            this.state.position.y=1;
+            
+            this.state.positionOffset.top=-408;
+            this.state.positionOffset.left=-153;
+        }
         this.setState(this.state);
     }
 
@@ -47,6 +74,15 @@ class Character extends Component {
         this.state.movesmade++;
         this.state.position.x++;
         this.state.positionOffset.left += 51;
+        if (this.state.position.x>8 || this.state.position.x<1){
+            alert("You went off of the board :(");
+            this.state.position.x=1;
+            this.state.position.y=1;
+            
+            this.state.positionOffset.top=-408;
+            this.state.positionOffset.left=-153;
+
+        }
         this.setState(this.state);
     }
     checkCollection() {
@@ -76,7 +112,6 @@ class Character extends Component {
                 
                 if(temp_colors.length==0) {
                     alert("Congrats you have won the game. YAY!!! :) It took you "+ this.state.movesmade+" moves to complete the game");
-  
                     document.getElementById("color_to_collect").innerHTML = "COMPLETED :)";
                 }
 
